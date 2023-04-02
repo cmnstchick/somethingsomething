@@ -18,9 +18,9 @@ app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
 @app.route('/')
 def ScamTextDetect():
-    return render_template('scamtextdetector.html')
+    return render_template('index.html')
 
-@app.route('/output', methods=["POST"])
+@app.route('/index', methods=["POST"])
 def send_mail():
     user_input = request.form["user_input"]
     print(user_input)
@@ -28,7 +28,7 @@ def send_mail():
     msg.body = "hey, sending out email from flask!!!"
     mail.send(msg)
     
-    return render_template('scamtextdetector.html')
+    return render_template('index.html')
 
 
 if __name__ == "__main__":

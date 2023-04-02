@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <title>Scam-Text-Detector</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='scamtext.css')}}">
+</head>
+<body>
+    <div class="back">
+        <a href="{{url_for('home')}}">
+            <span>Back</span>
+        </a>
+    </div>
+    <div class="container" id="content">
+        <h2>Scam Text Detector</h2>
+        <form action="{{ url_for('ScamTextInput') }}" method="POST">
+            <div class="inputbox">
+                <input type="textarea" required="required" size="50" name="user_input">
+                <span>Paste text here</span>
+            </div>
+            <div class="inputbox">
+                <input type="submit" value="Submit" name="submit" onclick="loading();">
+            </div>
+        </form>
+    </div>
+    <div class="popup" id="popup">
+        <img src = "static/app_images/loading.gif">
+        <h2>This process will take several minutes. Do not close or refresh the page!</h2>
+    </div>
+    <script>
+        let popup = document.getElementById("popup");
+        function loading(){
+            popup.classList.add("open-popup")
+        }
+    </script>
+</body>
+</html>
